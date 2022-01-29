@@ -29,7 +29,7 @@ public class UserService {
   public ResponseTemplateVO getUserWithDepartment(Long userId) {
     log.info("Inside getUserWithDepartment method of UserService");
     User user = userRepository.findByUserId(userId);
-    Department department = restTemplate.getForObject("http://localhost:9001/departments/" + user.getDepartmentId(),
+    Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/" + user.getDepartmentId(),
         Department.class);
     return new ResponseTemplateVO(user, department);
   }
