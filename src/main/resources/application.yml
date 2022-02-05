@@ -1,17 +1,7 @@
-server:
-  port: 9002
-
 spring:
-  profiles:
-    active: dev
   application:
     name: USER-SERVICE
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://service-registry:8761/eureka/
-  instance:
-    prefer-ip-address: true
+  profiles:
+    active: dev
+  config:
+    import: configserver:http://cloud-config-server:9296
